@@ -1,0 +1,21 @@
+services:
+  - type: worker
+    name: btc-bot-paper-worker
+    runtime: docker
+    rootDir: runner
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: starter
+    numInstances: 1
+    autoDeployTrigger: off
+    envVars:
+      - key: BTC_BOT_SITE_URL
+        value: https://btc-bot.aidan-brogan15.chatgpt.site
+      - key: BTC_BOT_SITE_TOKEN
+        sync: false
+      - key: BTC_BOT_WORKER_SECRET
+        sync: false
+      - key: KALSHI_API_KEY_ID
+        sync: false
+      - key: KALSHI_PRIVATE_KEY
+        sync: false
